@@ -1,0 +1,61 @@
+CREATE TABLE [dbo].[Actors] (
+    [actorID]   INT          IDENTITY (1, 1) NOT NULL,
+    [firstname] VARCHAR (50) NULL,
+    [lastname]  VARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([actorID] ASC)
+);
+
+SET IDENTITY_INSERT [dbo].[Actors] ON
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (18, N'Tom', N'Hanks')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (19, N'Johnny', N'Depp')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (20, N'Mike', N'Tyson')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (21, N'John', N'Cena')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (22, N'Mars', N'Larsen')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (23, N'Mads', N'Mikkelsen')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (24, N'Kim', N'Larsen')
+INSERT INTO [dbo].[Actors] ([actorID], [firstname], [lastname]) VALUES (25, N'Samuel', N'Jackson')
+SET IDENTITY_INSERT [dbo].[Actors] OFF
+
+
+
+
+CREATE TABLE [dbo].[Genre] (
+    [type] VARCHAR (50) NOT NULL,
+    [ID]   INT          IDENTITY (1, 1) NOT NULL,
+    CONSTRAINT [PK_Genre] PRIMARY KEY CLUSTERED ([type] ASC)
+);
+
+
+SET IDENTITY_INSERT [dbo].[Genre] ON
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Action', 1)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Comedy', 2)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Crime', 3)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Drama', 4)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Fantasy', 10)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Gore', 9)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Horror', 7)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Sci-Fi', 5)
+INSERT INTO [dbo].[Genre] ([type], [ID]) VALUES (N'Thriller', 12)
+SET IDENTITY_INSERT [dbo].[Genre] OFF
+
+
+
+
+
+CREATE TABLE [dbo].[Movies] (
+    [movieID]     INT           IDENTITY (1, 1) NOT NULL,
+    [movieTitle]  VARCHAR (50)  NULL,
+    [movieYear]   INT           NULL,
+    [genre]       VARCHAR (50)  NULL,
+    [description] VARCHAR (MAX) NULL,
+    PRIMARY KEY CLUSTERED ([movieID] ASC),
+    CONSTRAINT [FK_Movies_Genre] FOREIGN KEY ([genre]) REFERENCES [dbo].[Genre] ([type])
+);
+
+SET IDENTITY_INSERT [dbo].[Movies] ON
+INSERT INTO [dbo].[Movies] ([movieID], [movieTitle], [movieYear], [genre], [description]) VALUES (1, N'Pulp Fiction', 1994, N'Crime', N'American Crime film ')
+INSERT INTO [dbo].[Movies] ([movieID], [movieTitle], [movieYear], [genre], [description]) VALUES (2, N'Indiana Jones', 1984, N'Action', N'American action adventure film')
+INSERT INTO [dbo].[Movies] ([movieID], [movieTitle], [movieYear], [genre], [description]) VALUES (4, N'Forrest Gump', 1994, N'Drama', N'Drama comedy movie')
+INSERT INTO [dbo].[Movies] ([movieID], [movieTitle], [movieYear], [genre], [description]) VALUES (5, N'Shawshank Redemption', 1994, N'Drama', N'Prison escape movie')
+INSERT INTO [dbo].[Movies] ([movieID], [movieTitle], [movieYear], [genre], [description]) VALUES (7, N'Avatar', 2008, N'Action', N'Blue bois being blue')
+SET IDENTITY_INSERT [dbo].[Movies] OFF

@@ -1,0 +1,5 @@
+C:\Users\Jesper Deleurand\source\repos\Movie Night\Movie Night\bin\Debug\Movie Night.exe.config
+C:\Users\Jesper Deleurand\source\repos\Movie Night\Movie Night\bin\Debug\Movie Night.exe
+C:\Users\Jesper Deleurand\source\repos\Movie Night\Movie Night\bin\Debug\Movie Night.pdb
+C:\Users\Jesper Deleurand\source\repos\Movie Night\Movie Night\obj\Debug\Movie Night.exe
+C:\Users\Jesper Deleurand\source\repos\Movie Night\Movie Night\obj\Debug\Movie Night.pdb
